@@ -5,7 +5,8 @@ const methodEnumData = require('./enums/method_enum_data');
 const generatorEnumData = require('./enums/generator_enum_data');
 
 module.exports = (connection, DataTypes) => {
-  const Channels = connection.define('channels', {
+  const Channel = connection.define('channels', {
+    // belongsTo: Sites
     measurement: {
       type: DataTypes.ENUM,
       values: valuesEnumData,
@@ -52,5 +53,5 @@ module.exports = (connection, DataTypes) => {
     underscored: true
   });
 
-  return Channels;
+  return Channel;
 };

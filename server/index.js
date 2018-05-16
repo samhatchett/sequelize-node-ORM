@@ -1,6 +1,8 @@
 
 const createChannelsSites = require('./api/createChannelsSites');
 
-createChannelsSites().then(() => {
+createChannelsSites.updateSites()
+.then(() => createChannelsSites.updateChannels())
+.then(() => {
   console.log("FINISHED CHANNELS PROMISE")
 });

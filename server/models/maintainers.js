@@ -1,11 +1,13 @@
 module.exports = (connection, DataTypes) => {
-  const Maintainers = connection.define('maintainers', {
-    maintainer:{
-      type: DataTypes.STRING
-    },
+  const Maintainer = connection.define('maintainers', {
+    name: {
+      type: DataTypes.STRING,
+      unique: true
+    }
+    // belongsToMany: Sites
   }, {
     timestamps: false,
     underscored: true
   });
-  return Maintainers;
+  return Maintainer;
 };
