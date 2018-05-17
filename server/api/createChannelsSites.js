@@ -54,12 +54,12 @@ let updateChannelWithRow = (row,transaction) => {
   .then(([site,created]) => {
     console.log('found site: ' + site)
     let filter = _.extend(_.omit(row,'site'),{site_id:site.id}); // i hate this line.
-    return db.Channel.findOrCreate({where:filter, include:[{model:db.Site,as:'site'}], transaction})
-    .then(([channel,created]) => {
-      return channel.update(row,{transaction})
-      .then(()=>channel.setSite(site,{transaction}))
-      .then(()=>channel.save({transaction}));
-    });
+    return db.Channel.findOrCreate({where:filter, include:[{model:db.Site,as:'site'}], transaction});
+    // .then(([channel,created]) => {
+    //   return channel.update(row,{transaction})
+    //   .then(()=>channel.setSite(site,{transaction}))
+    //   .then(()=>channel.save({transaction}));
+    // });
   });
 };
 
